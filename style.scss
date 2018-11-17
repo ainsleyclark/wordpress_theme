@@ -1,0 +1,312 @@
+/*
+Theme Name: Boostrap Theme for Wordpress
+Theme URI: https://www.lyrathemes.com/bootstrap-wordpress-theme-tutorial/
+Author: Ainsley
+Author URI: https://www.ainsleyclark.com
+Description: A basic theme using the Bootstrap framework.
+Version: 1.0
+Text Domain: bootstrapstarter
+*/
+
+/*
+ * Varaibles
+ */
+$white: #ffffff;
+$lightgrey: #c4c4c4;
+$medgrey: #a6a6a6;
+$darkgrey: #1e1e1e;
+$primarycolor:  #417bd8;
+
+//#FF4500;
+
+ /*
+  * Globals
+  */
+@import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,700,700i");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+}
+    
+body {
+    letter-spacing: 1px;
+    width: 100%;
+    height: 100%;
+}
+
+// h1 {
+//     font-size: 36px;
+//     letter-spacing: 7px;
+//     font-weight: 100;
+// }
+
+// h2 {
+//     font-size: 20px;
+//     font-weight: normal;
+// }
+
+// hr {
+//     background-color: $white;
+// }
+
+button {
+    padding: 12px 40px;
+    background-color: $primarycolor;
+    color: $white;
+    font-size: 16px;
+    font-weight: 100;
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 15px;
+}
+
+/*
+Big Header Container
+*/
+.header_container {
+    h1, h2 {
+        width: 100%;
+        margin: 8px 0;
+        text-align: center;
+    }
+    h1 {
+        font-size: 30px;
+        color: red;
+        color: $darkgrey;
+        text-transform: uppercase;
+    } 
+    h2 {
+        font-size: 25px;
+        color: $medgrey;
+        font-weight: 100;
+    }
+    div {
+        width: 100%;
+        hr {
+            background-color: $medgrey;
+            height: 1px;
+            width: 65px;
+            margin: 18px auto;
+        }
+    }
+}
+
+/************************
+
+Navigation Bar
+
+************************/
+nav {
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    z-index: 10000;
+    background-color: white;
+    border-bottom: 1px solid $medgrey;
+
+    #logo {
+        position: absolute;
+        left: 12%;
+        font-size: 30px;
+        text-decoration: underline;
+        text-decoration-color: $primarycolor;
+    }
+    ul {
+        position: absolute;
+        right: 12%;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        display: inline-block;
+        text-align: right;
+
+        a {
+            color: $darkgrey;
+        }
+        li {
+            position: relative;
+            top: 0;
+            font-weight: 400;
+            display: inline-block;
+            margin: 0 20px;
+            font-size: 15px;
+        }
+
+        li:not(:last-of-type):after {
+            content: '|';
+            color: $primarycolor;
+            position: absolute;
+            display: block;
+            top: 0;
+            right: -26px;
+        }
+
+        li:last-of-type {
+            color: $primarycolor;
+            border: 1px solid $primarycolor;
+            font-size: 15px;
+            padding: 5px 15px;
+            text-transform: initial;
+            border-radius: 10px;
+        }
+
+        a:hover{
+            color: $primarycolor;
+            text-decoration: none;
+        }
+    }
+}
+
+/************************
+
+Hero Image/Header
+
+************************/
+#header {
+    position: relative; 
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+
+    #hero_image {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -10;
+    }
+
+    #header_wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 30px;
+        text-align: center;
+
+        h1, h2, button {
+            color: $white;
+        }
+
+        h1 {
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+        }
+
+        h2, button {
+            font-weight: 100;
+        }
+
+        h2 {
+
+        }
+        button {
+            text-transform: uppercase;
+            margin-top: 20px;
+        }
+    }
+
+}
+
+
+/*
+    Features Container
+*/
+#features_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 30px auto;
+    width: 70%;
+    
+    > div:first-of-type {
+        flex-basis: 100%;
+
+    }
+
+    .home_box {
+        height: auto;
+        flex-basis: 25%;
+        margin-top: 20px;
+
+        h1, p {
+            text-align: center;
+        }
+        h1 {
+            margin: 25px 0;
+            font-size: 18px;
+            letter-spacing: normal;
+            text-transform: uppercase;
+        }
+        p {
+            font-size: 14px;
+            font-weight: 100;
+        }
+    }
+
+    .feature_icon {
+        height: 90px;
+        width: 90px;
+        margin: 0 auto;
+        border: 1px solid $lightgrey;
+        border-radius: 50%;
+        img {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 35px;
+        }
+    }
+
+
+}
+
+/*
+    Banner Image
+*/
+.banner_image {
+    position: relative;
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+    img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    h1, h2 {
+        margin: 5px;
+        color: $white;
+        text-align: center;
+        letter-spacing: normal;
+    }
+
+
+}
+
+
+#footer {
+    position: relative;
+    height: 15vh;
+    // min-height: 150px;
+    width: 100%;
+    background-color: $darkgrey;
+}
