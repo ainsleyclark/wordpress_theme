@@ -1,7 +1,7 @@
 /*
-Theme Name: Boostrap Theme for Wordpress
-Theme URI: https://www.lyrathemes.com/bootstrap-wordpress-theme-tutorial/
-Author: Ainsley
+Theme Name: Ainsley Clark - Theme for Wordpress
+Theme URI: 
+Author: Ainsley Clark
 Author URI: https://www.ainsleyclark.com
 Description: A basic theme using the Bootstrap framework.
 Version: 1.0
@@ -14,14 +14,16 @@ Text Domain: bootstrapstarter
 $white: #ffffff;
 $lightgrey: #c4c4c4;
 $medgrey: #a6a6a6;
+$darkmedgrey: #2e3033;
 $darkgrey: #1e1e1e;
 $primarycolor:  #417bd8;
 
-//#FF4500;
+$mainwidth: 70%;
+$boxmargintopbottom: 50px;
 
- /*
-  * Globals
-  */
+/*
+    Globals
+*/
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,700,700i");
 
 * {
@@ -35,8 +37,17 @@ body {
     letter-spacing: 1px;
     width: 100%;
     height: 100%;
+    background-color: $white;
+}
+a {
+    text-decoration: none;
 }
 
+p {
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+}
 // h1 {
 //     font-size: 36px;
 //     letter-spacing: 7px;
@@ -65,9 +76,41 @@ button {
 }
 
 /*
-Big Header Container
+    Banner Images for Pages
+*/
+.banner_image {
+    position: relative;
+    top: 0;
+    left: 0;
+    min-height: 350px;
+    margin-bottom: $boxmargintopbottom / 2;
+
+    #hero_image {
+        width: 100%;
+        z-index: -1;
+        object-fit: cover;
+    }
+
+    span {
+        display: block;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        color: $white;
+        text-transform: uppercase;
+        font-size: 40px;
+    }
+}
+
+/*
+    Big Header Container (H1, H2 then Line)
 */
 .header_container {
+    width: 100%;
+    margin: 10px auto;
+
     h1, h2 {
         width: 100%;
         margin: 8px 0;
@@ -75,7 +118,6 @@ Big Header Container
     }
     h1 {
         font-size: 30px;
-        color: red;
         color: $darkgrey;
         text-transform: uppercase;
     } 
@@ -94,6 +136,40 @@ Big Header Container
         }
     }
 }
+/*
+    Small Header Container (H2, then Line)
+*/
+.small_header_container {
+    h1 {
+        color: $darkgrey;
+        font-size: 26px;
+    }
+    hr {
+        background-color: $medgrey;
+        width: 100%;
+        margin: 10px 0;
+    }
+}
+
+/*
+    Content Container
+*/
+.content_container {
+    position: relative;
+    margin: 0 auto;
+    width: 70%;
+    padding: 20px 0;
+    background-color: $white;
+    
+}
+.left_content {
+    position: relative;
+    width: 65%;
+    padding: 20px 0;
+}
+#wrapper {
+    padding-top: 70px;
+}
 
 /************************
 
@@ -108,16 +184,23 @@ nav {
     background-color: white;
     border-bottom: 1px solid $medgrey;
 
+    .content_container {
+        position: relative;
+        height: 100%;
+        padding: 0;
+    }
     #logo {
         position: absolute;
-        left: 12%;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
         font-size: 30px;
         text-decoration: underline;
         text-decoration-color: $primarycolor;
     }
     ul {
         position: absolute;
-        right: 12%;
+        right: 0;
         top: 50%;
         transform: translateY(-50%);
         margin: 0;
@@ -161,6 +244,8 @@ nav {
     }
 }
 
+
+
 /************************
 
 Hero Image/Header
@@ -193,6 +278,7 @@ Hero Image/Header
 
         h1, h2, button {
             color: $white;
+            margin: 20px 0;
         }
 
         h1 {
@@ -205,12 +291,11 @@ Hero Image/Header
             font-weight: 100;
         }
 
-        h2 {
-
+        hr {
+            margin-top: -15px;
         }
         button {
             text-transform: uppercase;
-            margin-top: 20px;
         }
     }
 
@@ -225,24 +310,22 @@ Hero Image/Header
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 30px auto;
+    margin: $boxmargintopbottom auto;
     width: 70%;
     
     > div:first-of-type {
         flex-basis: 100%;
-
     }
 
     .home_box {
         height: auto;
         flex-basis: 25%;
-        margin-top: 20px;
 
         h1, p {
             text-align: center;
         }
         h1 {
-            margin: 25px 0;
+            margin: 20px 0;
             font-size: 18px;
             letter-spacing: normal;
             text-transform: uppercase;
@@ -302,11 +385,188 @@ Hero Image/Header
 
 }
 
+.main_content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: left;
+    width: $mainwidth;
+    margin: $boxmargintopbottom auto;
 
+    p {
+        display: inline-block;
+        flex-basis: 28%;
+    }
+
+}
+
+/************************
+
+Contact
+
+************************/
+#form_box {
+    input, textarea {
+        background-color: #f5f5f5;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 8px 6px;
+        font-size: 14px;
+        margin-top: 5px;
+        border: 1px solid $lightgrey;
+    }
+    input {
+        height: 20px;
+    }
+    input:focus, textarea:focus {
+        outline: none;
+    }
+    textarea {
+        resize: none;
+        height: 100px;
+    }
+    label {
+        color: #556677;
+        margin: none;
+    }
+}
+
+/************************
+
+Side Bar
+
+************************/
+#sidebar {
+    float: right;
+    width: 25%;
+    padding: 20px;
+    list-style-type: none;
+
+    .sidebar_widget:not(:first-child) {
+        margin-top: 50px;
+    }
+    .sidebar_widget_title:first-child {
+        margin-top: 50px;
+    }
+    .sidebar_widget_title {
+        margin-bottom: 10px;
+        color: #556677;
+        font-size: 16px;
+        text-transform: uppercase;
+    }
+    ul {
+        a {
+            color: $primarycolor;
+            font-size: 14px;
+        }
+        li {
+            list-style-type: none;
+        }
+    }
+    .searchform {
+        width: 305px;
+        height: 34px;
+        border: 1px solid $medgrey;
+
+        input[type=text] {
+            position: relative;
+            height: 30px;
+            margin: 0;
+            border: none;
+            padding: 2px 8px;
+            font-size: 14px;
+            width: 80%;
+            outline: none;
+            background-color: #f5f5f5;
+
+        }
+        label {
+            display: none;
+        }
+        #searchsubmit {
+            background: url(img/contact/searchicon.png) no-repeat center #f5f5f5;
+            background-size: 30px;
+            font-size: 0;
+            height: 34px;
+            width: 34px;
+            float: right;
+            border: none;
+            outline: none;
+        }
+    }
+}
+/************************
+
+Footer
+
+************************/
 #footer {
     position: relative;
-    height: 15vh;
-    // min-height: 150px;
+    min-height: 300px;
     width: 100%;
-    background-color: $darkgrey;
+    //!Important sets margin between footer and other content.
+    margin-top: $boxmargintopbottom * 2;
+    background-color: $darkmedgrey;
+    z-index: 100;
+
+    hr {
+        width: 20%;
+        margin: 0 auto;
+        height: 1.5px;
+        background-color: $lightgrey;
+        border: none;
+    }
+}
+
+.footer_widgets {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+    .footer_widget_area {
+
+        width: 25%;
+        margin: 20px 0;
+        padding: 10px 0px;
+        text-align: left;
+        color: $medgrey;
+    }
+
+    .footer_widget_title {
+        color: $white;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    ul {
+
+        a {
+            color: $primarycolor;
+            font-size: 14px;
+        }
+        li {
+            list-style-type: none;
+        }
+    }
+
+
+
+}
+
+.footer_copyright {
+    display: block;
+    position: relative;
+    height:  150px;
+    line-height: 150px;
+    margin: 0px 0;
+    text-align: center;
+    color: $medgrey;
+    a {
+        color: $primarycolor;
+    }
+    
 }

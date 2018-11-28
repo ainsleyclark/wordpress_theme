@@ -1,7 +1,7 @@
 /*
-Theme Name: Boostrap Theme for Wordpress
-Theme URI: https://www.lyrathemes.com/bootstrap-wordpress-theme-tutorial/
-Author: Ainsley
+Theme Name: Ainsley Clark - Theme for Wordpress
+Theme URI: 
+Author: Ainsley Clark
 Author URI: https://www.ainsleyclark.com
 Description: A basic theme using the Bootstrap framework.
 Version: 1.0
@@ -11,8 +11,8 @@ Text Domain: bootstrapstarter
  * Varaibles
  */
 /*
-  * Globals
-  */
+    Globals
+*/
 @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,700,700i");
 * {
   margin: 0;
@@ -25,6 +25,17 @@ body {
   letter-spacing: 1px;
   width: 100%;
   height: 100%;
+  background-color: #ffffff;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 20px;
 }
 
 button {
@@ -40,8 +51,44 @@ button {
 }
 
 /*
-Big Header Container
+    Banner Images for Pages
 */
+.banner_image {
+  position: relative;
+  top: 0;
+  left: 0;
+  min-height: 350px;
+  margin-bottom: 25px;
+}
+
+.banner_image #hero_image {
+  width: 100%;
+  z-index: -1;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.banner_image span {
+  display: block;
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+/*
+    Big Header Container (H1, H2 then Line)
+*/
+.header_container {
+  width: 100%;
+  margin: 10px auto;
+}
+
 .header_container h1, .header_container h2 {
   width: 100%;
   margin: 8px 0;
@@ -50,7 +97,6 @@ Big Header Container
 
 .header_container h1 {
   font-size: 30px;
-  color: red;
   color: #1e1e1e;
   text-transform: uppercase;
 }
@@ -72,6 +118,41 @@ Big Header Container
   margin: 18px auto;
 }
 
+/*
+    Small Header Container (H2, then Line)
+*/
+.small_header_container h1 {
+  color: #1e1e1e;
+  font-size: 26px;
+}
+
+.small_header_container hr {
+  background-color: #a6a6a6;
+  width: 100%;
+  margin: 10px 0;
+}
+
+/*
+    Content Container
+*/
+.content_container {
+  position: relative;
+  margin: 0 auto;
+  width: 70%;
+  padding: 20px 0;
+  background-color: #ffffff;
+}
+
+.left_content {
+  position: relative;
+  width: 65%;
+  padding: 20px 0;
+}
+
+#wrapper {
+  padding-top: 70px;
+}
+
 /************************
 
 Navigation Bar
@@ -86,9 +167,18 @@ nav {
   border-bottom: 1px solid #a6a6a6;
 }
 
+nav .content_container {
+  position: relative;
+  height: 100%;
+  padding: 0;
+}
+
 nav #logo {
   position: absolute;
-  left: 12%;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   font-size: 30px;
   text-decoration: underline;
   -webkit-text-decoration-color: #417bd8;
@@ -97,7 +187,7 @@ nav #logo {
 
 nav ul {
   position: absolute;
-  right: 12%;
+  right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -178,6 +268,7 @@ Hero Image/Header
 
 #header #header_wrapper h1, #header #header_wrapper h2, #header #header_wrapper button {
   color: #ffffff;
+  margin: 20px 0;
 }
 
 #header #header_wrapper h1 {
@@ -190,9 +281,12 @@ Hero Image/Header
   font-weight: 100;
 }
 
+#header #header_wrapper hr {
+  margin-top: -15px;
+}
+
 #header #header_wrapper button {
   text-transform: uppercase;
-  margin-top: 20px;
 }
 
 /*
@@ -210,7 +304,7 @@ Hero Image/Header
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 30px auto;
+  margin: 50px auto;
   width: 70%;
 }
 
@@ -223,7 +317,6 @@ Hero Image/Header
   height: auto;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
-  margin-top: 20px;
 }
 
 #features_container .home_box h1, #features_container .home_box p {
@@ -231,7 +324,7 @@ Hero Image/Header
 }
 
 #features_container .home_box h1 {
-  margin: 25px 0;
+  margin: 20px 0;
   font-size: 18px;
   letter-spacing: normal;
   text-transform: uppercase;
@@ -295,10 +388,203 @@ Hero Image/Header
   letter-spacing: normal;
 }
 
+.main_content {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: left;
+  width: 70%;
+  margin: 50px auto;
+}
+
+.main_content p {
+  display: inline-block;
+  -ms-flex-preferred-size: 28%;
+      flex-basis: 28%;
+}
+
+/************************
+
+Contact
+
+************************/
+#form_box input, #form_box textarea {
+  background-color: #f5f5f5;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 8px 6px;
+  font-size: 14px;
+  margin-top: 5px;
+  border: 1px solid #c4c4c4;
+}
+
+#form_box input {
+  height: 20px;
+}
+
+#form_box input:focus, #form_box textarea:focus {
+  outline: none;
+}
+
+#form_box textarea {
+  resize: none;
+  height: 100px;
+}
+
+#form_box label {
+  color: #556677;
+  margin: none;
+}
+
+/************************
+
+Side Bar
+
+************************/
+#sidebar {
+  float: right;
+  width: 25%;
+  padding: 20px;
+  list-style-type: none;
+}
+
+#sidebar .sidebar_widget:not(:first-child) {
+  margin-top: 50px;
+}
+
+#sidebar .sidebar_widget_title:first-child {
+  margin-top: 50px;
+}
+
+#sidebar .sidebar_widget_title {
+  margin-bottom: 10px;
+  color: #556677;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+#sidebar ul a {
+  color: #417bd8;
+  font-size: 14px;
+}
+
+#sidebar ul li {
+  list-style-type: none;
+}
+
+#sidebar .searchform {
+  width: 305px;
+  height: 34px;
+  border: 1px solid #a6a6a6;
+}
+
+#sidebar .searchform input[type=text] {
+  position: relative;
+  height: 30px;
+  margin: 0;
+  border: none;
+  padding: 2px 8px;
+  font-size: 14px;
+  width: 80%;
+  outline: none;
+  background-color: #f5f5f5;
+}
+
+#sidebar .searchform label {
+  display: none;
+}
+
+#sidebar .searchform #searchsubmit {
+  background: url(img/contact/searchicon.png) no-repeat center #f5f5f5;
+  background-size: 30px;
+  font-size: 0;
+  height: 34px;
+  width: 34px;
+  float: right;
+  border: none;
+  outline: none;
+}
+
+/************************
+
+Footer
+
+************************/
 #footer {
   position: relative;
-  height: 15vh;
+  min-height: 300px;
   width: 100%;
-  background-color: #1e1e1e;
+  margin-top: 100px;
+  background-color: #2e3033;
+  z-index: 100;
+}
+
+#footer hr {
+  width: 20%;
+  margin: 0 auto;
+  height: 1.5px;
+  background-color: #c4c4c4;
+  border: none;
+}
+
+.footer_widgets {
+  width: 70%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.footer_widgets .footer_widget_area {
+  width: 25%;
+  margin: 20px 0;
+  padding: 10px 0px;
+  text-align: left;
+  color: #a6a6a6;
+}
+
+.footer_widgets .footer_widget_title {
+  color: #ffffff;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.footer_widgets ul a {
+  color: #417bd8;
+  font-size: 14px;
+}
+
+.footer_widgets ul li {
+  list-style-type: none;
+}
+
+.footer_copyright {
+  display: block;
+  position: relative;
+  height: 150px;
+  line-height: 150px;
+  margin: 0px 0;
+  text-align: center;
+  color: #a6a6a6;
+}
+
+.footer_copyright a {
+  color: #417bd8;
 }
 /*# sourceMappingURL=style.css.map */

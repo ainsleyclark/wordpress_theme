@@ -62,7 +62,7 @@
 </div>
 
 <div class="banner_image">
-<?php
+    <?php
         // vars
         $banner = get_field('home_banner_image');	
 
@@ -70,15 +70,26 @@
             <img src="<?php echo $banner['banner_background']; ?>" alt="<?php echo $banner['banner_background']; ?>" />
             <h1> <?php echo $banner['title']; ?> </h1>
             <h2> <?php echo $banner['sub_title']; ?> </h2>
-<?php endif; ?>
+    <?php endif; ?>
 
 </div>
 
 <div class="main_content">
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-    the_content();
-    endwhile; else: ?>
-    <p>Sorry, no posts matched your criteria.</p>
+        <?php
+        // vars
+        $services = get_field('home_services_group');	
+
+        if( $services ): ?>
+            <div class="header_container">
+                <h1> <?php echo $services['title']; ?> </h1>
+                <h2> <?php echo $services['sub_title']; ?> </h2>
+                <div>
+                    <hr>
+                </div>
+            </div>
+            <p> <?php echo $services['paragraph_1']; ?> </p>
+            <p> <?php echo $services['paragraph_2']; ?> </p>
+            <p> <?php echo $services['paragraph_3']; ?> </p>
     <?php endif; ?>
 </div>
 

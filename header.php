@@ -10,25 +10,40 @@
 </head>
 <body>
 
-<div id="wrapper">
+    <!-- Main Nav Bar -->
     <nav>
-    <?php $custom_logo_id = get_theme_mod( 'custom_logo' );
-        $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-        if ( has_custom_logo() ) {
-                echo '<img src="'. esc_url( $logo[0] ) .'">';
-        } else {
-                echo '<h1 id="logo">Logo</h1>';
-    } ?> 
+        <div class="content_container">
+            <?php $custom_logo_id = get_theme_mod( 'custom_logo' );
+                $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+                if ( has_custom_logo() ) {
+                        echo '<img src="'. esc_url( $logo[0] ) .'">';
+                } else {
+                        echo '<h1 id="logo">Logo</h1>';
+            } ?> 
 
-    <?php 
-        $args = array(
-            'theme_location' => 'primary'
-        );
-    ?>
+            <?php 
+                $args = array(
+                    'theme_location' => 'primary'
+                );
+            ?>
 
-    <?php wp_nav_menu( $args ); ?>
-
+            <?php wp_nav_menu( $args ); ?>
+        </div>
     </nav>
 
+<div id="wrapper">
 
-    <p>Loredsjklfdjsjklfdskldfsvdsv jkkjsdkjfdkj</p>
+<!-- Add Big Banner Image Support to about, contact & blog pages -->
+<?php if(is_page( array ('about', 'contact', 'blog' ))) { ?>
+    <div class="banner_image">
+        <?php 
+                $attr = array(
+                'id' => 'hero_image',
+                );
+                echo get_the_post_thumbnail( $id, 'banner', $attr );
+            ?>
+        <span class="page_title">
+            <?php single_post_title(); ?>
+        </span>
+    </div>
+<?php } ?>

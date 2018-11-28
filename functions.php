@@ -1,25 +1,84 @@
 <?php
 
 
-register_sidebar( array(
-    'name' => __( 'Header information', 'twentytwelve' ),
-    'id' => 'header-information',
-    'description' => __( 'Information for the header', 'twentytwelve' ),
-    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-    'after_widget' => '</aside>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
+//Add Widget Locations
+function widgetInit() {
 
-register_sidebar( array(
-    'name' => __( 'Footer information', 'twentytwelve' ),
-    'id' => 'footer-information',
-    'description' => __( 'Information for the footer', 'twentytwelve' ),
-    'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-    'after_widget' => '</aside>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
+    //Main SideBar
+    register_sidebar( 
+        array(
+            'name' => 'Side Bar',
+            'id' => 'side_bar',
+            'description' => __( 'This sidebar will display only on the contact page.'),
+            'before_widget' => '<div class="sidebar_widget">',
+            'after_widget' => '</div>',
+            'before_title' => '<div class="sidebar_widget_title">',
+            'after_title' => '</div>'
+            )
+        );
+
+    //Footer Area 1
+    register_sidebar(
+        array(
+            'id' => 'footer1',
+            'name' => __('Footer Area 1'),
+            'description' => __( 'This sidebar will display only in the footer on the left.'),
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<div class="footer_widget_title">',
+            'after_title' => '</div>'
+            )
+        );
+
+    //Footer Area 2
+    register_sidebar(
+        array(
+            'id' => 'footer2',
+            'name' => __('Footer Area 2'),
+            'description' => __( 'This sidebar will display only in the footer in the middle left'),
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<div class="footer_widget_title">',
+            'after_title' => '</div>'
+            )
+        );
+
+    //Footer Area 3
+    register_sidebar(
+        array(
+            'id' => 'footer3',
+            'name' => __('Footer Area 3'),
+            'description' => __( 'This sidebar will display only in the footer in the middle right'),
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<div class="footer_widget_title">',
+            'after_title' => '</div>'
+            )
+        );
+
+    //Footer Area 3
+    register_sidebar(
+        array(
+            'id' => 'footer4',
+            'name' => __('Footer Area 4'),
+            'description' => __( 'This sidebar will display only in the footer on the right'),
+            'before_widget' => '',
+            'after_widget' => '',
+            'before_title' => '<div class="footer_widget_title">',
+            'after_title' => '</div>'
+            )
+        );
+
+}
+
+add_action('widgets_init', 'widgetInit');
+
+function theme_name_scripts() {
+    wp_enqueue_style( 'style-name', get_stylesheet_uri() );
+    wp_enqueue_style( 'style-name', get_stylesheet_uri() );
+
+}
+add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
 
 
 function theme_Setup() {
@@ -47,19 +106,6 @@ function themename_custom_logo_setup() {
 add_action( 'after_setup_theme', 'themename_custom_logo_setup' );
 
 
-function bootstrapstarter_enqueue_styles() {
-    wp_register_style('bootstrap', get_template_directory_uri() . '/bootstrap/css/bootstrap.min.css' );
-    $dependencies = array('bootstrap');
-	wp_enqueue_style( 'bootstrapstarter-style', get_stylesheet_uri(), $dependencies ); 
-}
-
-function bootstrapstarter_enqueue_scripts() {
-    $dependencies = array('jquery');
-    wp_enqueue_script('bootstrap', get_template_directory_uri().'/bootstrap/js/bootstrap.min.js', $dependencies, '', true );
-}
-
-add_action( 'wp_enqueue_scripts', 'bootstrapstarter_enqueue_styles' );
-add_action( 'wp_enqueue_scripts', 'bootstrapstarter_enqueue_scripts' );
 
 function bootstrapstarter_wp_setup() {
     add_theme_support( 'title-tag' );
