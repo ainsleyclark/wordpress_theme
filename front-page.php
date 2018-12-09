@@ -93,4 +93,17 @@
     <?php endif; ?>
 </div>
 
+<div class="home_recent_posts">
+    <div class="header_container">
+        <h1> Recent Posts </h1>
+        <h2> Whats</h2>
+        <div>
+            <hr>
+        </div>
+    </div>
+</div>
+
+
+
+
 <?php get_footer(); ?>

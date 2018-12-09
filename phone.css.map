@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAwBA,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,MAAM;EAChC,AAAA,aAAa,CAAC;IACV,gBAAgB,EAAE,GAAG;GACxB;;;AAEL,yEAAyE;AACzE,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAC/B,AAAA,aAAa,CAAC;IACV,gBAAgB,EAAE,MAAM;GAC3B;;;AAEH,0EAA0E;AAC5E,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAC/B,AAAA,aAAa,CAAC;IACV,gBAAgB,EAAE,KAAK;GAC1B",
+    "sources": [
+        "phone.scss"
+    ],
+    "names": [],
+    "file": "phone.css"
+}

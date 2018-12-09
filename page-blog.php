@@ -1,38 +1,46 @@
 <?php get_header(); ?>
 
-<div class="content_container clear_fix">
+<div class="content_container">
+
+    <div class="left_content" id="blog_wrapper">
+        <ul id="blog_container">
+
+            <!-- the loop -->
+            
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+
+                <li>
+                    <div class="post_image">
+                        <?php 
+                            $attr = array(
+                                'id' => 'hero_image',
+                                );
+                                echo get_the_post_thumbnail( $id, 'banner', $attr );
+                        ?>
+                    </div>
+
+                    <h2><?php the_title(); ?></h2>
+                    <hr class="small_line">
+                    <p><?php the_field('post_description'); ?></p>
+                    <a href="<?php the_permalink(); ?>">
+                    <button>Read More</button>
+                    </a>
+                </li>
+
+            <?php endwhile; ?>
+
+        </ul>
+
+        <?php wp_reset_postdata(); ?>
+
+        <?php else : ?>
+            <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+        <?php endif; ?>
+
+    </div><!-- Close Left Content -->
+hjkhjhjhj
     <?php get_sidebar(); ?>
-    <div class="left_content" id="form_box">
-        <div class="small_header_container">
-            <h1><?php the_field('blog_header'); ?></h1>
-            <hr>
-        </div>
 
-    </div>
-</div>
-
-
-<?php 
-// the query
-$wpb_all_query = new WP_Query(array('post_type'=>'post', 'post_status'=>'publish', 'posts_per_page'=>-1)); ?>
-
-<?php if ( $wpb_all_query->have_posts() ) : ?>
-
-<ul>
-
-    <!-- the loop -->
-    <?php while ( $wpb_all_query->have_posts() ) : $wpb_all_query->the_post(); ?>
-        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
-    <?php endwhile; ?>
-    <!-- end of the loop -->
-
-</ul>
-
-    <?php wp_reset_postdata(); ?>
-
-<?php else : ?>
-    <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-<?php endif; ?>
-
+</div><!-- Close Content Container -->
 
 <?php get_footer(); ?>

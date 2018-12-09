@@ -1,0 +1,41 @@
+// @media only screen and (min-width: 700px) and (max-width: 1200px) {
+//     .left_content {
+//         background-color: red;
+//     }
+//     #blog_container {
+    
+//         li {
+//             width: 50%;
+//         }
+//     }
+// }
+
+// @media only screen and (min-width: 0px) and (max-width: 699px) {
+//     .left_content {
+//         background-color: green;
+//     }
+//     #blog_container {
+//         justify-content: space-around;
+    
+//         li {
+//             width: 50%;
+//         }
+//     }
+// }
+@media screen and (max-width: 1200px) {
+    .left_content {
+        background-color: red;
+    }
+}
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+    .left_content {
+        background-color: purple;
+    }
+}
+  /* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 600px) {
+    .left_content {
+        background-color: olive;
+    }
+}

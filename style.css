@@ -38,6 +38,13 @@ p {
   line-height: 20px;
 }
 
+.small_line {
+  width: 30%;
+  height: 1px;
+  background-color: #c4c4c4;
+  border: none;
+}
+
 button {
   padding: 12px 40px;
   background-color: #417bd8;
@@ -47,7 +54,11 @@ button {
   border: none;
   text-transform: uppercase;
   letter-spacing: 2px;
-  border-radius: 15px;
+  cursor: pointer !important;
+}
+
+button:focus {
+  outline: 0 !important;
 }
 
 /*
@@ -137,20 +148,58 @@ button {
 */
 .content_container {
   position: relative;
-  margin: 0 auto;
-  width: 70%;
+  max-width: 1200px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin: 0 15px;
   padding: 20px 0;
   background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .left_content {
   position: relative;
-  width: 65%;
-  padding: 20px 0;
+  width: 67%;
 }
 
 #wrapper {
   padding-top: 70px;
+}
+
+/*
+    Pagination
+*/
+.paginate_pages {
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.paginate_pages .page-numbers {
+  display: inline-block;
+  padding: 20px 18px;
+  border: 1px solid #c4c4c4;
+  margin: 0 5px;
+  color: #1e1e1e;
+}
+
+.paginate_pages .page-numbers:hover:not(.current) {
+  background-color: #e2e2e2;
+}
+
+.paginate_pages .current {
+  background-color: #417bd8;
+  color: #ffffff;
+}
+
+.paginate_pages .prev, .paginate_pages .next {
+  display: none;
 }
 
 /************************
@@ -224,7 +273,6 @@ nav ul li:last-of-type {
   font-size: 15px;
   padding: 5px 15px;
   text-transform: initial;
-  border-radius: 10px;
 }
 
 nav ul a:hover {
@@ -317,6 +365,7 @@ Hero Image/Header
   height: auto;
   -ms-flex-preferred-size: 25%;
       flex-basis: 25%;
+  max-width: 300px;
 }
 
 #features_container .home_box h1, #features_container .home_box p {
@@ -414,12 +463,122 @@ Hero Image/Header
 
 /************************
 
+Blog
+
+************************/
+#blog_container {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#blog_container li {
+  display: block;
+  position: relative;
+  width: 386px;
+  height: auto;
+  padding-bottom: 20px;
+  text-decoration: none;
+  margin-bottom: 30px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#blog_container li h2, #blog_container li hr, #blog_container li p {
+  margin: 20px 20px;
+}
+
+#blog_container li h2 {
+  font-size: 20px;
+}
+
+#blog_container li button {
+  padding: 14px 18px;
+  color: #417bd8;
+  background-color: transparent;
+  border: 2px solid #417bd8;
+  border-radius: 0;
+  font-size: 14px;
+  text-transform: none;
+  letter-spacing: normal;
+  margin: 0 20px;
+  z-index: -1;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+#blog_container li button:hover {
+  background-color: #417bd8;
+  color: #ffffff;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+#blog_container .post_image {
+  width: 100%;
+  height: 230px;
+  margin-bottom: 15px;
+}
+
+#blog_container .post_image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+}
+
+/************************
+
+Single Blog Pages
+
+************************/
+#blog_post_wrapper {
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.blog_post_content {
+  padding-bottom: 15px;
+}
+
+.blog_post_content hr, .blog_post_content h2, .blog_post_content p {
+  margin: 15px;
+}
+
+.blog_post_content p:last-child {
+  margin-bottom: 0px;
+}
+
+.featured_blog_image {
+  width: 100%;
+  height: 450px;
+  min-height: 450px;
+}
+
+.featured_blog_image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/************************
+
 Contact
 
 ************************/
 #form_box input, #form_box textarea {
   background-color: #f5f5f5;
-  width: 100%;
+  width: 98%;
   margin-bottom: 15px;
   padding: 8px 6px;
   font-size: 14px;
@@ -451,9 +610,7 @@ Side Bar
 
 ************************/
 #sidebar {
-  float: right;
-  width: 25%;
-  padding: 20px;
+  width: 30%;
   list-style-type: none;
 }
 
@@ -482,7 +639,7 @@ Side Bar
 }
 
 #sidebar .searchform {
-  width: 305px;
+  width: 73%;
   height: 34px;
   border: 1px solid #a6a6a6;
 }
@@ -494,7 +651,7 @@ Side Bar
   border: none;
   padding: 2px 8px;
   font-size: 14px;
-  width: 80%;
+  width: 70%;
   outline: none;
   background-color: #f5f5f5;
 }
@@ -586,5 +743,73 @@ Footer
 
 .footer_copyright a {
   color: #417bd8;
+}
+
+@media screen and (max-width: 1250px) {
+  #blog_container {
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  #blog_container li {
+    width: 48%;
+  }
+  #blog_container li:nth-child(odd) {
+    margin-right: 20px;
+  }
+}
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 900px) {
+  .content_container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .left_content {
+    width: 100%;
+  }
+  #sidebar {
+    width: 100%;
+    margin-top: 30px;
+  }
+  #blog_container {
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  #blog_container li {
+    width: 48%;
+  }
+  #blog_container li:nth-child(odd) {
+    margin-right: 20px;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 700px) {
+  .content_container {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .left_content {
+    width: 100%;
+  }
+  #sidebar {
+    width: 100%;
+  }
+  #sidebar .sidebar_widget_title {
+    margin: 0px !important;
+  }
+  #blog_container {
+    width: 100%;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  #blog_container li {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

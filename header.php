@@ -34,7 +34,7 @@
 <div id="wrapper">
 
 <!-- Add Big Banner Image Support to about, contact & blog pages -->
-<?php if(is_page( array ('about', 'contact', 'blog' ))) { ?>
+<?php if(is_page( array ('about', 'contact', 'blog'))) { ?>
     <div class="banner_image">
         <?php 
                 $attr = array(

@@ -1,5 +1,7 @@
 <?php
 
+wp_enqueue_script('main', get_template_directory_uri() .'/js/main.js', array('jquery'), null, true);
+
 
 //Add Widget Locations
 function widgetInit() {
@@ -79,6 +81,9 @@ function theme_name_scripts() {
 
 }
 add_action( 'wp_enqueue_scripts', 'theme_name_scripts' );
+
+
+wp_enqueue_script( 'script', get_template_directory_uri() . '/js/main.js', array ( 'jquery' ), 1.1, true);
 
 
 function theme_Setup() {

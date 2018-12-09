@@ -59,9 +59,12 @@ p {
 //     font-weight: normal;
 // }
 
-// hr {
-//     background-color: $white;
-// }
+.small_line {
+    width: 30%;
+    height: 1px;
+    background-color: $lightgrey;
+    border: none;
+}
 
 button {
     padding: 12px 40px;
@@ -72,8 +75,12 @@ button {
     border: none;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border-radius: 15px;
+    cursor: pointer !important;
 }
+
+button:focus {
+    outline:0 !important;
+} 
 
 /*
     Banner Images for Pages
@@ -156,20 +163,54 @@ button {
 */
 .content_container {
     position: relative;
-    margin: 0 auto;
-    width: 70%;
+    max-width: 1200px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 15px;
     padding: 20px 0;
     background-color: $white;
-    
+    display: flex;
+    justify-content: space-between;
+
 }
 .left_content {
     position: relative;
-    width: 65%;
-    padding: 20px 0;
+    width: 67%;
 }
 #wrapper {
     padding-top: 70px;
 }
+
+/*
+    Pagination
+*/
+.paginate_pages {
+    position: relative;
+    display: block;
+    text-align: center;
+
+    .page-numbers {
+        display: inline-block;
+        padding: 20px 18px;
+        border: 1px solid $lightgrey;
+        margin: 0 5px;
+        color: $darkgrey;
+    }
+
+    .page-numbers:hover:not(.current) {
+        background-color: #e2e2e2;
+    }
+
+    .current {
+        background-color: $primarycolor;
+        color: $white;
+    }
+
+    .prev, .next {
+        display: none;
+    }
+}
+
 
 /************************
 
@@ -234,13 +275,13 @@ nav {
             font-size: 15px;
             padding: 5px 15px;
             text-transform: initial;
-            border-radius: 10px;
         }
 
         a:hover{
             color: $primarycolor;
             text-decoration: none;
         }
+
     }
 }
 
@@ -320,6 +361,7 @@ Hero Image/Header
     .home_box {
         height: auto;
         flex-basis: 25%;
+        max-width: 300px;
 
         h1, p {
             text-align: center;
@@ -404,13 +446,114 @@ Hero Image/Header
 
 /************************
 
+Blog
+
+************************/
+#blog_wrapper {
+    // width: 60%;
+}
+
+#blog_container {
+    $distancebetweenels: 20px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    li {
+        display: block;
+        position: relative;
+        width: 386px;
+        height: auto;
+        padding-bottom: $distancebetweenels;
+        //border: 1px solid $lightgrey;
+        text-decoration: none;
+        margin-bottom: 30px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+        h2, hr, p {
+            margin: $distancebetweenels $distancebetweenels;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        button {
+            padding: 14px 18px;
+            color: $primarycolor;
+            background-color: transparent;
+            border: 2px solid $primarycolor;
+            border-radius: 0;
+            font-size: 14px;
+            text-transform: none;
+            letter-spacing: normal;
+            margin: 0 $distancebetweenels;
+            z-index: -1;
+            transition: all 0.2s;
+        }
+
+        button:hover {
+            background-color: $primarycolor;
+            color: $white;
+            transform: scale(0.9);
+        }
+    }
+
+    .post_image {
+        width: 100%;
+        height: 230px;
+        margin-bottom: 15px;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+    }
+
+}
+/************************
+
+Single Blog Pages
+
+************************/
+#blog_post_wrapper {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.blog_post_content {
+padding-bottom: 15px;
+    hr, h2, p {
+        margin: 15px;
+    }
+    p:last-child {
+        margin-bottom: 0px;
+    }
+}
+//Featured Image Template
+.featured_blog_image {
+    width: 100%;
+    height: 450px;
+    min-height: 450px;
+
+    img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+
+/************************
+
 Contact
 
 ************************/
 #form_box {
     input, textarea {
         background-color: #f5f5f5;
-        width: 100%;
+        width: 98%;
         margin-bottom: 15px;
         padding: 8px 6px;
         font-size: 14px;
@@ -439,9 +582,8 @@ Side Bar
 
 ************************/
 #sidebar {
-    float: right;
-    width: 25%;
-    padding: 20px;
+    width: 30%;
+    // padding: 20px 0;
     list-style-type: none;
 
     .sidebar_widget:not(:first-child) {
@@ -466,7 +608,7 @@ Side Bar
         }
     }
     .searchform {
-        width: 305px;
+        width: 73%;
         height: 34px;
         border: 1px solid $medgrey;
 
@@ -477,7 +619,7 @@ Side Bar
             border: none;
             padding: 2px 8px;
             font-size: 14px;
-            width: 80%;
+            width: 70%;
             outline: none;
             background-color: #f5f5f5;
 
@@ -553,8 +695,6 @@ Footer
         }
     }
 
-
-
 }
 
 .footer_copyright {
@@ -569,4 +709,86 @@ Footer
         color: $primarycolor;
     }
     
+}
+
+
+
+@media screen and (max-width: 1250px) {
+    .content_container {
+
+    }
+    .left_content {
+
+    }
+    #blog_container {
+        width: 100%;
+        justify-content: flex-start;
+
+        li {
+            width: 48%;
+        }
+        li:nth-child(odd) {
+            margin-right: 20px;
+        }
+    }
+}
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 900px) {
+    .content_container {
+        flex-wrap: wrap;
+    }
+    .left_content {
+        width: 100%;
+    }
+    #sidebar {
+        width: 100%;
+        margin-top: 30px;
+    }
+    #blog_container {
+        width: 100%;
+        justify-content: flex-start;
+
+        li {
+            width: 48%;
+        }
+        li:nth-child(odd) {
+            margin-right: 20px;
+        }
+    }
+
+}
+
+  /* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 700px) {
+
+
+    .content_container {
+        flex-wrap: wrap;
+    }
+
+
+    .left_content {
+        width: 100%;
+    }
+
+
+    #sidebar {
+        width: 100%;
+
+        .sidebar_widget_title {
+            margin: 0px !important;
+        }
+    }
+
+
+    #blog_container {
+        width: 100%;
+        justify-content: flex-start;
+
+        li {
+            width: 100%;
+        }
+
+    }
+
 }
